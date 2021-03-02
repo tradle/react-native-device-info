@@ -61,6 +61,7 @@ RCT_EXPORT_MODULE();
          @"systemVersion": [self getSystemVersion],
          @"appVersion": [self getAppVersion],
          @"buildNumber": [self getBuildNumber],
+         @"isEmulatorSync": @([self isEmulatorSync]),
          @"isTablet": @([self isTablet]),
          @"appName": [self getAppName],
          @"brand": @"Apple",
@@ -365,9 +366,13 @@ RCT_EXPORT_METHOD(syncUniqueId:(RCTPromiseResolveBlock)resolve rejecter:(RCTProm
     }
 }
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(isEmulatorSync) {
-    return @(self.isEmulator);
-}
+ - (BOOL) isEmulatorSync {
+     return [self isEmulator];
+ }
+
+// RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(isEmulatorSync) {
+//     return @(self.isEmulator);
+// }
 
 RCT_EXPORT_METHOD(isEmulator:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     resolve(@(self.isEmulator));

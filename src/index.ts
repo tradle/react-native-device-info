@@ -768,7 +768,7 @@ export async function isEmulator() {
 export function isEmulatorSync() {
   if (emulator === undefined) {
     if (Platform.OS === 'android' || Platform.OS === 'ios' || Platform.OS === 'windows') {
-      emulator = RNDeviceInfo.isEmulatorSync();
+      emulator = RNDeviceInfo.isEmulatorSync;
     } else {
       emulator = false;
     }
